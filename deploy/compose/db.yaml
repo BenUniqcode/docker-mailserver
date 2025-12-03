@@ -7,7 +7,7 @@ services:
   # ones it does not know.
   db:
     image: ${DB_IMAGE:-mysql:lts}
-    restart: on-failure:5
+    restart: always
     env_file: ../../.env
     environment:
       MYSQL_DATABASE: ${DB_NAME:-${MYSQL_DATABASE:-mailserver}}

@@ -8,7 +8,7 @@ services:
       context: ../../target/mda
       cache_from:
         - type=registry,ref=ghcr.io/jeboehm/mailserver-mda:buildcache
-    restart: on-failure:5
+    restart: always
     env_file: ../../.env
     environment:
       DB_DRIVER: ${DB_DRIVER:-mysql}

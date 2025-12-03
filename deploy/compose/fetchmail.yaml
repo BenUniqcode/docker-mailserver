@@ -4,7 +4,7 @@ services:
   # if you don't need it.
   fetchmail:
     image: ghcr.io/jeboehm/fetchmailmgr:0.4.0
-    restart: on-failure:5
+    restart: always
     command:
       - --interval
       - ${FETCHMAIL_INTERVAL}

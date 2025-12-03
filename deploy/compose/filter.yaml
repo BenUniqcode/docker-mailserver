@@ -7,7 +7,7 @@ services:
       context: ../../target/filter
       cache_from:
         - type=registry,ref=ghcr.io/jeboehm/mailserver-filter:buildcache
-    restart: on-failure:5
+    restart: always
     env_file: ../../.env
     tmpfs:
       - /tmp:mode=0755,uid=11333,gid=11333
