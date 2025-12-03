@@ -18,6 +18,9 @@ services:
       DB_PORT: ${DB_PORT:-${MYSQL_PORT:-3306}}
       DB_TLS_VERIFY_CERT: ${DB_TLS_VERIFY_CERT:-${MYSQL_TLS_VERIFY_CERT:-no}}
       DB_USER: ${DB_USER:-${MYSQL_USER:-mailserver}}
+    ports:
+      - "0.0.0.0:25:25"
+      - "0.0.0.0:587:587"
     volumes:
       - data-spool:/var/spool/postfix
       ## 2025-11-26 BW Remove built in TLS to use Let's Encrypt instead

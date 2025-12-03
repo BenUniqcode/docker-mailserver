@@ -35,3 +35,9 @@ services:
       # and change the path on the left side of the colon.
       - /etc/letsencrypt/live/her.qxtl.net/fullchain.pem:/etc/dovecot/tls/tls.crt:ro
       - /etc/letsencrypt/live/her.qxtl.net/privkey.pem:/etc/dovecot/tls/tls.key:ro
+    ports:
+      - "0.0.0.0:143:31143"
+      - "0.0.0.0:993:31993"
+      - "0.0.0.0:110:31110"
+      - "0.0.0.0:995:31995"
+
