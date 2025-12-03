@@ -1,7 +1,8 @@
 ---
 # Include all service definitions from separate files
 include:
-  - deploy/compose/ssl.yaml
+  ## 2025-11-26 - ssl container not needed as I'm using Let's Encrypt from the host. Using this didn't work - invalid certificate error
+  # - deploy/compose/ssl.yaml
   - deploy/compose/mta.yaml
   - deploy/compose/mda.yaml
   - deploy/compose/web.yaml

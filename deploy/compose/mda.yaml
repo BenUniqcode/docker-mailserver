@@ -29,8 +29,9 @@ services:
       - db
     volumes:
       - data-mail:/srv/vmail
-      - data-tls:/etc/dovecot/tls:ro
+      ## 2025-11-26 BW Remove built in TLS to use Let's Encrypt instead
+      #- data-tls:/etc/dovecot/tls:ro
       # For using external certificates uncomment the following lines
       # and change the path on the left side of the colon.
-      # - /home/user/certs/mail.example.com.crt:/etc/dovecot/tls/tls.crt:mode=0444
-      # - /home/user/certs/mail.example.com.key:/etc/dovecot/tls/tls.key:mode=0444
+      - /etc/letsencrypt/live/her.qxtl.net/fullchain.pem:/etc/dovecot/tls/tls.crt:ro
+      - /etc/letsencrypt/live/her.qxtl.net/privkey.pem:/etc/dovecot/tls/tls.key:ro

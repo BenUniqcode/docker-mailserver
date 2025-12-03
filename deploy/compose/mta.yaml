@@ -19,9 +19,10 @@ services:
       DB_TLS_VERIFY_CERT: ${DB_TLS_VERIFY_CERT:-${MYSQL_TLS_VERIFY_CERT:-no}}
       DB_USER: ${DB_USER:-${MYSQL_USER:-mailserver}}
     volumes:
-      - data-tls:/etc/postfix/tls:ro
       - data-spool:/var/spool/postfix
+      ## 2025-11-26 BW Remove built in TLS to use Let's Encrypt instead
+      #- data-tls:/etc/dovecot/tls:ro
       # For using external certificates uncomment the following lines
       # and change the path on the left side of the colon.
-      # - /home/user/certs/mail.example.com.crt:/etc/postfix/tls/tls.crt:ro
-      # - /home/user/certs/mail.example.com.key:/etc/postfix/tls/tls.key:ro
+      - /etc/letsencrypt/live/her.qxtl.net/fullchain.pem:/etc/postfix/tls/tls.crt:ro
+      - /etc/letsencrypt/live/her.qxtl.net/privkey.pem:/etc/postfix/tls/tls.key:ro
