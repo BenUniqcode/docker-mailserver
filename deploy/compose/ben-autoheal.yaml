@@ -1,0 +1,11 @@
+## 2025-11-25 BW Moved out of the main compose.yml (where it was commented out)  
+services:
+  autoheal:
+    image: willfarrell/autoheal:latest
+    restart: always
+    networks: []
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - AUTOHEAL_CONTAINER_LABEL=de.ressourcenkonflikt.docker-mailserver.autoheal
+

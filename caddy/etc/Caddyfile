@@ -1,0 +1,3 @@
+mx.{$MY_DOMAIN} {
+	reverse_proxy docker-mailserver-web-1:8080
+}

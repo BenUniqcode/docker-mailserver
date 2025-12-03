@@ -8,3 +8,5 @@ site/
 **/rootfs/.banner.sh
 /Pipfile*
 /test/report/
+caddy/data/
+caddy/config/

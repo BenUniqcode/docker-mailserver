@@ -11,18 +11,8 @@ include:
   - deploy/compose/unbound.yaml
   - deploy/compose/db.yaml
   - deploy/compose/redis.yaml
-
-  # If you want unhealthy containers to be restarted automatically
-  # just uncomment the following lines.
-  # services:
-  #   autoheal:
-  #     image: willfarrell/autoheal:latest
-  #     restart: always
-  #     networks: []
-  #     volumes:
-  #       - /var/run/docker.sock:/var/run/docker.sock:ro
-  #     environment:
-  #       - AUTOHEAL_CONTAINER_LABEL=de.ressourcenkonflikt.docker-mailserver.autoheal
+  - deploy/compose/ben-caddy-reverseproxy.yaml
+  # - deploy/compose/ben-autoheal.yaml
 
 volumes:
   data-db:

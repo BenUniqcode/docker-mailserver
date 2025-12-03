@@ -1,0 +1,20 @@
+services:
+  caddy:
+    image: caddy
+    container_name: caddy
+    hostname: caddy
+    restart: always
+    env_file: ../../.env
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ../../caddy/etc:/etc/caddy
+      - ../../caddy/config:/config
+      - ../../caddy/data:/data
+
+networks:
+  default:
+    name: $DOCKER_CADDY_NETWORK
+    external: true
